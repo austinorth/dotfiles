@@ -1,12 +1,26 @@
-# Import stuff for work
-if [ -f ~/.zsh_niche ]; then
-    . ~/.zsh_niche
-fi
+# Homebrew config
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
+export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"
+export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 
-# Kubernetes aliases
+# Kubernetes config
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 alias k='kubectl'
 alias kc='kubectl config get-contexts'
 alias kw='watch kubectl'
+alias t="tofu"
+alias terraform="tofu"
+alias p="python"
+alias watch="watch "
+alias xaws="aws sso login --profile prod"
+dc="docker-compose"
+#kc(){kubectl config use-context $1}
+#kn(){kubectl config set-context --current --namespace=$1}
 
 # kubectl autocomplete
 autoload -Uz compinit
@@ -38,14 +52,6 @@ alias code="open -b com.microsoft.VSCode" # Prevents duplicate icon issue in Mac
 # Python config
 export PATH="/Users/austin/Library/Python/3.10/bin:$PATH"
 
-# Homebrew config
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
-export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
-export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
-export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"
-export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 
 # Enable GPG in current terminal
 export GPG_TTY=$(tty)
@@ -75,3 +81,4 @@ eval "$(starship init zsh)"
 
 # Activate Autosuggestions
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+

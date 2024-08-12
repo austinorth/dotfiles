@@ -13,6 +13,15 @@ Plug 'preservim/nerdtree'
 " vim-go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+" vim-terraform
+Plug 'hashivim/vim-terraform'
+
+" A.L.E. Linter
+" Plug 'dense-analysis/ale'
+
+" Copilot Vim
+" Plug 'github/copilot.vim'
+
 " Initialize plugin system
 call plug#end()
 
@@ -29,7 +38,7 @@ set t_Co=256
 
 " fixes glitch? in colors when using vim with tmux
 set termguicolors
-colorscheme nord 
+colorscheme gruvbox
 set background=dark
 
 " Syntax highlighting
@@ -76,23 +85,24 @@ filetype plugin indent on
 autocmd FileType markdown :set tw=72
 
 " Vim-go configuration
- let g:go_fmt_command = "goimports"
- let g:go_addtags_transform="camelcase"
-" " let g:go_metalinter_autosave = 1
- let g:go_highlight_functions = 1
-" " let g:go_highlight_function_arguments = 1
- let g:go_highlight_function_calls = 1
- let g:go_highlight_types = 1
-" " let g:go_highlight_fields = 1
- let g:go_highlight_operators = 1
- let g:go_highlight_build_contraints = 1
- let g:go_highlight_extra_types = 1
-
+let g:go_fmt_command = "goimports"
+let g:go_addtags_transform="camelcase"
+" let g:go_metalinter_autosave = 1
+let g:go_highlight_functions = 1
+" let g:go_highlight_function_arguments = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_types = 1
+" let g:go_highlight_fields = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_contraints = 1
+let g:go_highlight_extra_types = 1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 
+" Vim-terraform config
+let g:terraform_fmt_on_save = 1
+let g:terraform_binary_path = "/opt/homebrew/bin/tofu"
 
-" Run terraform fmt when saving Terraform files
-au BufWritePost,FileWritePost *.tf !terraform fmt <afile>
-au BufNewFile,BufRead Jenkinsfile setf groovy
-au BufNewFile,BufRead Jenkinsfile setlocal sw=2 ts=2 sts=2
+" YAML format on save
+au BufWritePost,FileWritePost *.yaml !yamlfmt <afile>
+au BufWritePost,FileWritePost *.yml !yamlfmt <afile>
