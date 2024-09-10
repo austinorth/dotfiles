@@ -7,6 +7,13 @@
 // custom settings, run the `zed: Open Default Settings` command
 // from the command palette
 {
+  "assistant": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4o"
+    },
+    "version": "2"
+  },
   "telemetry": {
     "diagnostics": false,
     "metrics": false
@@ -32,5 +39,10 @@
     "mode": "system",
     "light": "Gruvbox Light",
     "dark": "Gruvbox Dark"
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["ruff"]
+    }
   }
 }
