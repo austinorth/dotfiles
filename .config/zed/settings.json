@@ -10,7 +10,7 @@
   "assistant": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4o"
+      "model": "claude-3-5-sonnet"
     },
     "version": "2"
   },
@@ -18,7 +18,27 @@
     "diagnostics": false,
     "metrics": false
   },
+  // VIM SETTINGS
   "vim_mode": true,
+  // disable cursor blink
+  "cursor_blink": false,
+  // use relative line numbers
+  "relative_line_numbers": true,
+  // hide the scroll bar
+  "scrollbar": { "show": "never" },
+  // prevent the buffer from scrolling beyond the last line
+  "scroll_beyond_last_line": "off",
+  // allow cursor to reach edges of screen
+  "vertical_scroll_margin": 0,
+  "gutter": {
+    // disable line numbers completely:
+    "line_numbers": false
+  },
+  "command_aliases": {
+    "W": "w",
+    "Wq": "wq",
+    "Q": "q"
+  },
   "preferred_line_length": 80,
   "ui_font_size": 14,
   "buffer_font_size": 14,
@@ -37,12 +57,39 @@
   },
   "theme": {
     "mode": "system",
-    "light": "Gruvbox Light",
-    "dark": "Gruvbox Dark"
+    "light": "Atelier Lakeside Light",
+    "dark": "Atelier Lakeside Dark"
   },
   "languages": {
     "Python": {
       "language_servers": ["ruff"]
+    },
+    "Terraform": {
+      "formatter": {
+        "external": {
+          "command": "tofu",
+          "arguments": ["fmt", "-"]
+        }
+      }
+    },
+    "PHP": {
+      "format_on_save": "off"
+    }
+  },
+  "lsp": {
+    "yaml-language-server": {
+      "settings": {
+        "yaml": {
+          "schemaStore": {
+            "enable": true
+          }
+        }
+      }
+    },
+    "terraform-ls": {
+      "binary": {
+        "path": "/opt/homebrew/bin/tofu"
+      }
     }
   }
 }
