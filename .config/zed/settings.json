@@ -1,0 +1,117 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `zed: Open Default Settings` command
+// from the command palette
+{
+  "assistant": {
+    "dock": "left",
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-latest"
+    },
+    "version": "2"
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "file_types": {
+    "Helm": [
+      "**/templates/**/*.tpl",
+      "**/templates/**/*.yaml",
+      "**/templates/**/*.yml"
+    ]
+  },
+  // VIM SETTINGS
+  "vim_mode": true,
+  // disable cursor blink
+  "cursor_blink": false,
+  // use relative line numbers
+  "relative_line_numbers": true,
+  // hide the scroll bar
+  "scrollbar": { "show": "never" },
+  // prevent the buffer from scrolling beyond the last line
+  "scroll_beyond_last_line": "off",
+  // allow cursor to reach edges of screen
+  "vertical_scroll_margin": 0,
+  "gutter": {
+    // disable line numbers completely:
+    "line_numbers": false
+  },
+  "command_aliases": {
+    "W": "w",
+    "Wq": "wq",
+    "Q": "q"
+  },
+  "preferred_line_length": 80,
+  "ui_font_size": 14,
+  "buffer_font_size": 14,
+  "buffer_font_family": "Hack Nerd Font Mono",
+  "terminal": {
+    "font_family": "Hack Nerd Font",
+    "font_size": 14,
+    "font_features": {
+      "liga": false
+    },
+    "blinking": "on",
+    "line_height": "standard"
+  },
+  "project_panel": {
+    "dock": "right"
+  },
+  "theme": {
+    "mode": "system",
+    "light": "Gruvbox Light",
+    "dark": "Gruvbox Dark"
+  },
+  "languages": {
+    "JavaScript": {
+      "format_on_save": "off"
+    },
+    "Python": {
+      "language_servers": ["ruff"]
+    },
+    "Terraform": {
+      "formatter": {
+        "external": {
+          "command": "tofu",
+          "arguments": ["fmt", "-"]
+        }
+      }
+    },
+    "PHP": {
+      "format_on_save": "off"
+    },
+    "YAML": {
+      "auto_indent_on_paste": false
+    },
+    "Helm": {
+      "auto_indent_on_paste": false
+    }
+  },
+  "lsp": {
+    "yaml-language-server": {
+      "settings": {
+        "yaml": {
+          "schemaStore": {
+            "enable": true
+          }
+        }
+      }
+    },
+    "terraform-ls": {
+      "binary": {
+        "path": "/opt/homebrew/bin/tofu"
+      }
+    },
+    "helm-ls": {
+      "binary": {
+        "path": "/opt/homebrew/bin/helm-ls"
+      }
+    }
+  }
+}
