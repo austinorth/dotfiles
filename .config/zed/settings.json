@@ -7,11 +7,37 @@
 // custom settings, run the `zed: Open Default Settings` command
 // from the command palette
 {
-  "assistant": {
+  "agent": {
+    "profiles": {
+      "copilot-write": {
+        "name": "Copilot-Write",
+        "tools": {
+          "copy_path": true,
+          "create_directory": true,
+          "create_file": true,
+          "delete_path": true,
+          "diagnostics": true,
+          "edit_file": true,
+          "fetch": true,
+          "list_directory": true,
+          "move_path": true,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "grep": true,
+          "terminal": true,
+          "thinking": true,
+          "web_search": true
+        },
+        "enable_all_context_servers": true,
+        "context_servers": {}
+      }
+    },
+    "default_profile": "ask",
     "dock": "left",
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-latest"
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4"
     },
     "version": "2"
   },
@@ -23,25 +49,35 @@
     "Helm": [
       "**/templates/**/*.tpl",
       "**/templates/**/*.yaml",
-      "**/templates/**/*.yml"
-    ]
+      "**/templates/**/*.yml",
+      "**/helmfile.d/**/*.yaml",
+      "**/helmfile.d/**/*.yml",
+      "**/runners/**/*.yaml",
+      "**/runners/**/*.yml"
+    ],
+    "Dockerfile": ["Dockerfile*"]
   },
   // VIM SETTINGS
   "vim_mode": true,
   // disable cursor blink
   "cursor_blink": false,
-  // use relative line numbers
-  "relative_line_numbers": true,
-  // hide the scroll bar
-  "scrollbar": { "show": "never" },
   // prevent the buffer from scrolling beyond the last line
   "scroll_beyond_last_line": "off",
   // allow cursor to reach edges of screen
   "vertical_scroll_margin": 0,
-  "gutter": {
-    // disable line numbers completely:
-    "line_numbers": false
+  // disable auto indent on paste
+  "auto_indent_on_paste": false,
+  "message_editor": {
+    "gutter": {
+      "line_numbers": false,
+      "folds": true
+    }
   },
+  "gutter": {
+    "line_numbers": true,
+    "folds": false
+  },
+
   "command_aliases": {
     "W": "w",
     "Wq": "wq",
@@ -73,7 +109,21 @@
       "format_on_save": "off"
     },
     "Python": {
-      "language_servers": ["ruff"]
+      "language_servers": ["ruff"],
+      "format_on_save": "on",
+      "formatter": [
+        {
+          "code_actions": {
+            "source.organizeImports.ruff": true,
+            "source.fixAll.ruff": true
+          }
+        },
+        {
+          "language_server": {
+            "name": "ruff"
+          }
+        }
+      ]
     },
     "Terraform": {
       "formatter": {
@@ -86,8 +136,14 @@
     "PHP": {
       "format_on_save": "off"
     },
+    "Shell Script": {
+      "tab_size": 2
+    },
     "YAML": {
-      "auto_indent_on_paste": false
+      "auto_indent_on_paste": false,
+      "formatter": "language_server",
+      "tab_size": 2,
+      "format_on_save": "off"
     },
     "Helm": {
       "auto_indent_on_paste": false
@@ -99,6 +155,9 @@
         "yaml": {
           "schemaStore": {
             "enable": true
+          },
+          "format": {
+            "bracketSpacing": false
           }
         }
       }
