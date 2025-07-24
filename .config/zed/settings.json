@@ -7,11 +7,45 @@
 // custom settings, run the `zed: Open Default Settings` command
 // from the command palette
 {
+  "context_servers": {
+    "notionMCP": {
+      "source": "extension",
+      "enabled": true,
+      "settings": {}
+    },
+    "grafana-production": {
+      "source": "extension",
+      "enabled": true,
+      "settings": {}
+    },
+    "grafana-dev": {
+      "source": "extension",
+      "enabled": true,
+      "settings": {}
+    },
+    "grafana-staging": {
+      "source": "extension",
+      "enabled": true,
+      "settings": {}
+    }
+  },
+  "notification_panel": {
+    "dock": "left"
+  },
+  "debugger": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "right"
+  },
   "agent": {
+    "play_sound_when_agent_done": true,
     "profiles": {
-      "copilot-write": {
-        "name": "Copilot-Write",
+      "copilot-alert-investigation": {
+        "name": "Copilot-Alert-Investigation",
         "tools": {
+          "project_notifications": true,
+          "open": true,
           "copy_path": true,
           "create_directory": true,
           "create_file": true,
@@ -31,15 +65,37 @@
         },
         "enable_all_context_servers": true,
         "context_servers": {}
+      },
+      "write": {
+        "name": "Write",
+        "tools": {
+          "open": true,
+          "project_notifications": false,
+          "copy_path": true,
+          "create_directory": true,
+          "delete_path": true,
+          "diagnostics": true,
+          "edit_file": true,
+          "fetch": true,
+          "list_directory": true,
+          "move_path": true,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "grep": true,
+          "terminal": true,
+          "thinking": true,
+          "web_search": true
+        },
+        "enable_all_context_servers": false
       }
     },
-    "default_profile": "ask",
+    "default_profile": "write",
     "dock": "left",
     "default_model": {
       "provider": "copilot_chat",
       "model": "claude-sonnet-4"
-    },
-    "version": "2"
+    }
   },
   "telemetry": {
     "diagnostics": false,
@@ -67,12 +123,6 @@
   "vertical_scroll_margin": 0,
   // disable auto indent on paste
   "auto_indent_on_paste": false,
-  "message_editor": {
-    "gutter": {
-      "line_numbers": false,
-      "folds": true
-    }
-  },
   "gutter": {
     "line_numbers": true,
     "folds": false
@@ -124,17 +174,6 @@
           }
         }
       ]
-    },
-    "Terraform": {
-      "formatter": {
-        "external": {
-          "command": "tofu",
-          "arguments": ["fmt", "-"]
-        }
-      }
-    },
-    "PHP": {
-      "format_on_save": "off"
     },
     "Shell Script": {
       "tab_size": 2
