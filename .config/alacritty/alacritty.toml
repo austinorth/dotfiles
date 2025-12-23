@@ -7,6 +7,7 @@ import = [
 dimensions = { columns = 150, lines = 50 }
 decorations = "full"
 startup_mode = "Windowed"
+option_as_alt = "Both"
 
 [scrolling]
 history = 1000
@@ -27,38 +28,9 @@ TERM = "xterm-256color"
 [[keyboard.bindings]]
 key = "Left"
 mods = "Alt"
-chars = "\u001bb"
+chars = "\u001Bb"
 
 [[keyboard.bindings]]
 key = "Right"
 mods = "Alt"
-chars = "\u001bf"
-
-[[keyboard.bindings]]
-key = "Left"
-mods = "Command"
-chars = "\u001bOH"
-
-[[keyboard.bindings]]
-key = "Right"
-mods = "Command"
-chars = "\u001bOF"
-
-[[keyboard.bindings]]
-key = "Back"
-mods = "Alt"
-chars = "\u001b\u007f"
-
-[[keyboard.bindings]]
-key = "Back"
-mods = "Command"
-chars = "\u0015"
-
-[[keyboard.bindings]]
-key = "Delete"
-chars = "\u001b[3~"
-
-[[keyboard.bindings]]
-key = "Insert"
-chars = "\u001b[2~"
-
+chars = "\u001Bf"
