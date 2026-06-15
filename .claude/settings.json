@@ -1,0 +1,45 @@
+{
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "permissions": {
+    "allow": [
+      "mcp__plugin_alert-investigation_grafana-mt__*"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/austin/.claude/statusline.py log"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "/Users/austin/.claude/statusline.py statusline"
+  },
+  "enabledPlugins": {
+    "cost-monitor@machinify-plugins": true,
+    "alert-investigation@machinify-plugins": true,
+    "atlassian@machinify-plugins": true
+  },
+  "extraKnownMarketplaces": {
+    "machinify-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "vlognow/llm-plugins"
+      }
+    }
+  },
+  "autoMemoryEnabled": false,
+  "model": "sonnet",
+  "showClearContextOnPlanAccept": true,
+  "useAutoModeDuringPlan": false,
+  "disableAutoMode": "disable"
+}
