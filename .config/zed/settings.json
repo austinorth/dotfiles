@@ -7,28 +7,6 @@
 // custom settings, run the `zed: Open Default Settings` command
 // from the command palette
 {
-  "context_servers": {
-    "notionMCP": {
-      "source": "extension",
-      "enabled": true,
-      "settings": {}
-    },
-    "grafana-production": {
-      "source": "extension",
-      "enabled": true,
-      "settings": {}
-    },
-    "grafana-dev": {
-      "source": "extension",
-      "enabled": true,
-      "settings": {}
-    },
-    "grafana-staging": {
-      "source": "extension",
-      "enabled": true,
-      "settings": {}
-    }
-  },
   "notification_panel": {
     "dock": "left"
   },
